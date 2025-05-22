@@ -8,7 +8,8 @@ Day 3	Model Training & Evaluation
 Day 4	Feature Engineering & Hyperparameter Tuning
 
 📁 Dataset Overview
-Source: Kaggle Credit Card Dataset
+**Source**: [Kaggle - Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- **Format**: CSV (`creditcard.csv`)
 
 Size: 284,807 transactions
 
