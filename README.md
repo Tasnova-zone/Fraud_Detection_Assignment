@@ -1,52 +1,64 @@
 💳 Credit Card Fraud Detection – Machine Learning Project
-A comprehensive project focused on identifying fraudulent transactions using the Credit Card Fraud Detection Dataset from Kaggle. This 2-week industrial attachment project at Brain Station 23 followed a full ML pipeline: from data exploration to advanced model tuning.
+A comprehensive end-to-end machine learning project focused on identifying fraudulent credit card transactions using the Kaggle Credit Card Fraud Dataset.
+Conducted as part of a 2-week industrial attachment at Brain Station 23, this project covers the full ML pipeline — from data exploration to deploying a web-based prediction tool.
+
+📁 Dataset Overview
+Source: Kaggle – Credit Card Fraud Detection Dataset
+
+File Format: CSV (creditcard.csv)
+
+Total Transactions: 284,807
+
+Features: 30
+
+28 anonymized principal components (V1–V28)
+
+Time, Amount
+
+Target Variable:
+
+Class: 1 = Fraud, 0 = Normal
+
+Class imbalance: Fraud cases ~0.17%
 
 📅 Project Timeline & Key Milestones
 Day	Focus Area
-Day 2	Data Analysis & Visualization
+Day 1	Python Basics & Financial Data Exploration
+Day 2	EDA & Visualization
 Day 3	Model Training & Evaluation
-Day 4	Feature Engineering & Hyperparameter Tuning
+Day 4	Feature Engineering & Model Tuning
+Day 5	Streamlit App Development & Deployment
 
-📁 Dataset Overview
-**Source**: [Kaggle - Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-- **Format**: CSV (`creditcard.csv`)
-
-Size: 284,807 transactions
-
-Features: 30 (28 anonymized: V1–V28 + Time, Amount)
-
-Target Variable: Class — 1 = Fraud, 0 = Normal
-
-📊 Day 2: Exploratory Data Analysis (EDA)
+🔎 Day 2 – Exploratory Data Analysis (EDA)
 ✅ Actions:
-Loaded data from Google Drive
+Loaded and inspected the dataset using Pandas
 
-Verified data integrity (null checks, types)
+Verified data integrity (null checks, data types)
 
-Investigated class imbalance
+Identified severe class imbalance
 
-Created:
+Created visualizations:
 
 Class distribution bar chart
 
-Histograms and KDE plots
+Histograms & KDE plots
 
-Boxplots for skewed features
+Boxplots for outlier detection
 
 Correlation heatmaps
 
-Log-scaled visualizations for fraud vs. amount
+Log-scaled fraud vs. amount distribution
 
-🔍 Insights:
-Severe class imbalance: ~0.17% fraud
+📌 Key Findings:
+Fraudulent cases ≈ 0.17% of total data
 
-Strong fraud indicators: Features like V14, V12, and V17
+Top fraud indicators: V14, V12, V17
 
-Fraudulent transactions often have lower amounts
+Fraud transactions typically involve lower amounts
 
-Time didn’t show strong correlation with fraud
+Time showed no significant correlation with fraud
 
-🤖 Day 3: Initial Model Building & Evaluation
+🤖 Day 3 – Initial Model Building & Evaluation
 📌 Models Trained:
 Logistic Regression
 
@@ -57,57 +69,87 @@ K-Nearest Neighbors (KNN)
 Naive Bayes
 
 🧪 Evaluation Metrics:
-Accuracy, Precision, Recall, F1 Score, ROC-AUC
-
 Model	Accuracy	Precision	Recall	F1 Score	ROC AUC
 Naive Bayes	0.976	0.059	0.847	0.087	0.963
 Logistic Regression	0.999	0.829	0.643	0.723	0.957
 KNN	0.999	0.919	0.806	0.858	0.944
 Decision Tree	0.999	0.895	0.786	0.837	0.901
 
-📌 Observations:
-Logistic Regression had high precision, but moderate recall
+🔍 Observations:
+Logistic Regression: High precision but lower recall
 
-Naive Bayes had very high recall, but too many false positives
+Naive Bayes: Best recall, but many false positives
 
-KNN and Decision Tree offered balanced performance
+KNN & Decision Tree: More balanced performance
 
-🛠️ Day 4: Feature Engineering & Advanced Models
-🔧 Enhancements:
-Scaled Time and Amount using StandardScaler
+🛠️ Day 4 – Feature Engineering & Model Tuning
+🔧 Preprocessing Steps:
+Normalized Time and Amount with StandardScaler
 
-Addressed imbalance using class_weight='balanced'
+Balanced data using:
 
-Applied GridSearchCV for parameter tuning
+Undersampling
 
-✅ Models Tuned:
+class_weight='balanced'
+
+Hyperparameter tuning using GridSearchCV
+
+✅ Tuned Models:
 Random Forest
 
 Gradient Boosting
 
 Decision Tree (as baseline)
 
+📈 Final Evaluation Results:
 Model	ROC AUC	F1 Score	Precision	Recall
 Random Forest	0.983	0.933	0.992	0.880
 Gradient Boosting	0.982	0.927	0.971	0.887
 Decision Tree	0.933	0.912	0.970	0.860
 
-🧠 Best Random Forest Parameters:
+🧠 Best Hyperparameters (Random Forest):
 python
 Copy code
 {'n_estimators': 200, 'max_depth': 20, 'min_samples_split': 2}
-⚖️ Class Distribution
-Original:
+🌐 Day 5 – Streamlit App Deployment
+🎯 Objective:
+Develop a simple web interface that allows users to input transaction details and get fraud prediction results using the trained Random Forest model.
 
-Normal: 284,315
+🛠️ Tech Stack:
+Frontend: Streamlit (Python)
 
-Fraud: 492
+Model Serving: Random Forest serialized with joblib
 
-Balanced for Training:
+🖥️ How to Use:
+Save fraud_model.pkl (trained model) and app.py in the same folder
 
-Class 0 (Normal): 492
+Run the app using:
 
-Class 1 (Fraud): 492
+bash
+Copy code
+streamlit run app.py
+Enter transaction details in the form
 
-📌 Conclusion
-This project demonstrates the end-to-end development of a fraud detection system — from raw data to a tuned ensemble model. With high AUC and F1 scores, especially from Random Forest and Gradient Boosting, the models show strong potential for real-world deployment in finance and security domains.
+The app returns a fraud probability and classification result
+
+✅ Final Summary
+This project demonstrates the complete end-to-end process of building a machine learning solution for fraud detection:
+
+Data Exploration: Understanding imbalance and key features
+
+Model Training: Baseline + advanced models
+
+Feature Engineering: Scaling, balancing, tuning
+
+Evaluation: ROC AUC, F1 Score, Precision, Recall
+
+Deployment: Streamlit web app for real-time inference
+
+📌 Key Achievements:
+Achieved high accuracy and recall using ensemble methods
+
+Identified fraud-indicative features
+
+Built and deployed a usable web prediction tool
+
+Gained hands-on experience in both ML and full-stack deployment
