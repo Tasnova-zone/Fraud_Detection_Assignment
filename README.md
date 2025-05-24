@@ -3,7 +3,7 @@ A comprehensive end-to-end machine learning project focused on identifying fraud
 Conducted as part of a 2-week industrial attachment at Brain Station 23, this project covers the full ML pipeline — from data exploration to deploying a web-based prediction tool.
 
 📁 Dataset Overview
-Source: Kaggle – Credit Card Fraud Detection Dataset
+Source: Kaggle - Credit Card Fraud Detection Dataset
 
 File Format: CSV (creditcard.csv)
 
@@ -82,6 +82,7 @@ Naive Bayes: Best recall, but many false positives
 
 KNN & Decision Tree: More balanced performance
 
+
 🛠️ Day 4 – Feature Engineering & Model Tuning
 🔧 Preprocessing Steps:
 Normalized Time and Amount with StandardScaler
@@ -107,10 +108,13 @@ Random Forest	0.983	0.933	0.992	0.880
 Gradient Boosting	0.982	0.927	0.971	0.887
 Decision Tree	0.933	0.912	0.970	0.860
 
+
 🧠 Best Hyperparameters (Random Forest):
 python
 Copy code
 {'n_estimators': 200, 'max_depth': 20, 'min_samples_split': 2}
+
+
 🌐 Day 5 – Streamlit App Deployment
 🎯 Objective:
 Develop a simple web interface that allows users to input transaction details and get fraud prediction results using the trained Random Forest model.
